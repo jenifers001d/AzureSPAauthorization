@@ -4,7 +4,7 @@ $(function() {
 
   // App configuration
   var authEndpoint = 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize?';
-  var redirectUri = 'https://wanghsuan.github.io/AzureSPAauthorization/';
+  var redirectUri = 'http://localhost:8080';
   var appId = '446c647b-743d-4a63-8953-765c8d5f8767';
   var scopes = 'openid profile User.Read Mail.Read Calendars.Read Calendars.ReadWrite';
 
@@ -388,6 +388,7 @@ function getAccessToken(callback) {
             if (err) {
               callback(null, err);
             } else {
+              console.log(res.value);
               callback(res.value);
             }
           });
@@ -492,7 +493,6 @@ function getAccessToken(callback) {
           .top(10)
           .select('Subject,Organizer,Start,End')
           .orderby('createdDateTime DESC')
-          
           .get((err, res) => {
             if (err) {
               callback(null, err);
