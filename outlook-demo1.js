@@ -6,12 +6,12 @@ const hsuan = document.getElementById('inbox');
 
 
 function getUserInboxMessages() {
-    console.log(localStorage.accessToken);
+    console.log(localStorage.getItem('accessToken'));
     
         var client = MicrosoftGraph.Client.init({
           authProvider: (done) => {
             // Just return the token
-            done(null, localStorage.accessToken);
+            done(null, localStorage.getItem('accessToken'));
           }
         });
   

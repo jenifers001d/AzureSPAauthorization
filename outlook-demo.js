@@ -239,7 +239,8 @@ $(function() {
   
     sessionStorage.authState = '';
     sessionStorage.accessToken = tokenresponse.access_token;
-    localStorage.accessToken = tokenresponse.access_token;
+    localStorage.setItem('accessToken',tokenresponse.access_token);
+    //set local storage
   
     // Get the number of seconds the token is valid for,
     // Subract 5 minutes (300 sec) to account for differences in clock settings
@@ -250,7 +251,7 @@ $(function() {
     sessionStorage.tokenExpires = expireDate.getTime();
   
     sessionStorage.idToken = tokenresponse.id_token;
-    localStorage.idToken = tokenresponse.id_token;
+    localStorage.setItem('idToken',tokenresponse.id_token);
   
     // Redirect to home page
     validateIdToken(function(isValid) {
