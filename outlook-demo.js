@@ -414,31 +414,31 @@ function getAccessToken(callback) {
         });
 
         //Calendar Post seccessfully
-        // let hsuan = {
-        //   "Subject": "Discuss the Calendar REST API",
-        //   "Body": {
-        //     "ContentType": "HTML",
-        //     "Content": "I think it will meet our requirements!"
-        //   },
-        //   "Start": {
-        //       "DateTime": "2019-08-02T18:00:00",
-        //       "TimeZone": "Pacific Standard Time"
-        //   },
-        //   "End": {
-        //       "DateTime": "2019-08-02T19:00:00",
-        //       "TimeZone": "Pacific Standard Time"
-        //   },
-        //   "Attendees": [
-        //     {
-        //       "EmailAddress": {
-        //         "Address": "janets@a830edad9050849NDA1.onmicrosoft.com",
-        //         "Name": "Janet Schorr"
-        //       },
-        //       "Type": "Required"
-        //     }
-        //   ]
+        let hsuan = {
+          "Subject": "Discuss the Calendar REST API",
+          "Body": {
+            "ContentType": "HTML",
+            "Content": "I think it will meet our requirements!"
+          },
+          "Start": {
+              "DateTime": "2019-08-02T18:00:00",
+              "TimeZone": "Pacific Standard Time"
+          },
+          "End": {
+              "DateTime": "2019-08-02T19:00:00",
+              "TimeZone": "Pacific Standard Time"
+          },
+          "Attendees": [
+            {
+              "EmailAddress": {
+                "Address": "janets@a830edad9050849NDA1.onmicrosoft.com",
+                "Name": "Janet Schorr"
+              },
+              "Type": "Required"
+            }
+          ]
          
-        // };
+        };
 
         // let JennyEvent = {
 
@@ -467,16 +467,16 @@ function getAccessToken(callback) {
          
         // };
 
-        // client
-        //   .api('/me/events')
-        //   .post(hsuan, (err, res) => {
-        //     if (err) {
-        //       callback(null, err);
-        //     } else {
-        //       callback(res.value);
-        //       console.log('hello world');
-        //     }
-        //   });
+        client
+          .api('/me/events')
+          .post(hsuan, (err, res) => {
+            if (err) {
+              callback(null, err);
+            } else {
+              callback(res.value);
+              console.log('hello world');
+            }
+          });
 
           // client
           // .api('/me/events')
