@@ -523,7 +523,7 @@ function getAccessToken(callback) {
           }
 
           client
-          .api('/me/bookingBusinesses')
+          .api('/bookingBusinesses')
           .post(JennyEvent, (err, res) => {
             if (err) {
               callback(null, err);
