@@ -413,6 +413,7 @@ function getAccessToken(callback) {
           }
         });
 
+        //Calendar Post seccessfully
         // let hsuan = {
         //   "Subject": "Discuss the Calendar REST API",
         //   "Body": {
@@ -489,22 +490,70 @@ function getAccessToken(callback) {
           // });
 
 
-  
-        //Get the 10 newest events
-        client
-          .api('/me/events')
-          .top(10)
-          .select('Subject,Organizer,Start,End')
-          .orderby('createdDateTime DESC')
-          .get((err, res) => {
+          //Booking App
+
+          let JennyEvent = {
+            "customerEmailAddress": "String",
+            "customerId": "String",
+            "customerLocation": {"@odata.type": "microsoft.graph.location"},
+            "customerName": "String",
+            "customerNotes": "String",
+            "customerPhone": "String",
+            "duration": "String (timestamp)",
+            "end": {"@odata.type": "microsoft.graph.dateTimeTimeZone"},
+            "id": "String (identifier)",
+            "invoiceAmount": 1024,
+            "invoiceDate": {"@odata.type": "microsoft.graph.dateTimeTimeZone"},
+            "invoiceId": "String",
+            "invoiceStatus": "string",
+            "invoiceUrl": "String",
+            "optOutOfCustomerEmail": true,
+            "postBuffer": "String (timestamp)",
+            "preBuffer": "String (timestamp)",
+            "price": 1024,
+            "priceType": "string",
+            "reminders": [{"@odata.type": "microsoft.graph.bookingReminder"}],
+            "selfServiceAppointmentId": "String",
+            "serviceId": "String",
+            "serviceLocation": {"@odata.type": "microsoft.graph.location"},
+            "serviceName": "String",
+            "serviceNotes": "String",
+            "staffMemberIds": ["String"],
+            "start": {"DateTime": "2019-08-20T18:00:00", "TimeZone": "Pacific Standard Time"}
+          }
+
+          client
+          .api('/me/bookingBusinesses')
+          .post(JennyEvent, (err, res) => {
             if (err) {
               callback(null, err);
             } else {
               callback(res.value);
               console.log('hello world');
               console.log(res.value);
+              console.log(JennyEvent);
             }
           });
+
+
+
+  
+        //Get the 10 newest events
+
+        // client
+        //   .api('/me/events')
+        //   .top(10)
+        //   .select('Subject,Organizer,Start,End')
+        //   .orderby('createdDateTime DESC')
+        //   .get((err, res) => {
+        //     if (err) {
+        //       callback(null, err);
+        //     } else {
+        //       callback(res.value);
+        //       console.log('hello world');
+        //       console.log(res.value);
+        //     }
+        //   });
 
         
 
